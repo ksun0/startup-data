@@ -3,3 +3,5 @@ ai-organizations/
 ai-organizations/*
 csv_export/
 csv_export/*
+.ipynb_checkpoints/
+.ipynb_checkpoints/*
