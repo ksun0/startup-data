@@ -1,0 +1,117 @@
+
+
+
+
+
+
+<html>
+<head>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='style.css') }}">
+
+
+
+
+
+</head>
+<body>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-md-6 col-sm-12 col-xs-12 pane">
+      <article>
+        <h1>{{ title }}</h1>
+        <blockquote>
+          <p>Author: {% for author in authors %}{{ author }}{% endfor %}. <br>{{ publish_date }}.
+          </p>
+        </blockquote>
+        <figure>
+          <img src="{{ top_image }}" alt="Image">
+        </figure>
+        <p>{{ text }}</p>
+
+
+      </article>
+    </div>
+    <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12 pane" id="sentiment-pane">
+      <div class="progress" id="top-bar">
+        <div class="progress-bar spectrum1 spectrum" role="progressbar" style="width: 10%"></div>
+        <div class="progress-bar spectrum2 spectrum" role="progressbar" style="width: 10%"></div>
+        <div class="progress-bar spectrum3 spectrum" role="progressbar" style="width: 10%"></div>
+        <div class="progress-bar spectrum4 spectrum" role="progressbar" style="width: 10%"></div>
+        <div class="progress-bar spectrum5 spectrum" role="progressbar" style="width: 10%"></div>
+        <div class="progress-bar spectrum6 spectrum" role="progressbar" style="width: 10%"></div>
+        <div class="progress-bar spectrum7 spectrum" role="progressbar" style="width: 10%"></div>
+        <div class="progress-bar spectrum8 spectrum" role="progressbar" style="width: 10%"></div>
+        <div class="progress-bar spectrum9 spectrum" role="progressbar" style="width: 10%"></div>
+        <div class="progress-bar spectrum10 spectrum" role="progressbar" style="width: 10%"></div>
+      </div>
+      <div class="container">
+        <section id="leaning">
+          <h4 style="color: #3300CC;"><strong>analyzing...</strong><br><small>please wait</small></h4>
+        </section>
+        <hr class="hidden-initially">
+        <section id="entities">
+          <!-- <h6 class="text-success">&#9650; Hillary Clinton</h6>
+          <h6 class="text-success">&#9650; Grand Canyon</h6>
+          <h6 class="text-success">&#9650; Idaho</h6>
+          <h6 class="text-danger">&#9660; Donald Trump</h6>
+          <h6 class="text-danger">&#9660; Sweden</h6>
+          <h6 class="text-danger">&#9660; Bitcoin</h6> -->
+        </section>
+        <hr class="hidden-initially">
+        <section id="analysis">
+          <h5 style="color: #333;" class="hidden-initially"><small>contains</small><br><strong>mostly analysis</strong></h5>
+        </section>
+      </div>
+      <p></p>
+    </div>
+  </div>
+
+</div>
+
+<script src="http://code.jquery.com/jquery-3.3.1.min.js"
+integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+crossorigin="anonymous"></script>
+
+<script>
+function load(data) {
+  var sentiment = data[0];
+
+  var quantized_ideology = 0;
+  var color = "#00ff00";
+  var html_content = "<strong>error...</strong><br><small>something weird happened</small>"
+
+
+  $("#top-bar .spectrum" + quantized_ideology).addClass("extended-bar-top");
+  $("#leaning h4").html(html_content);
+  $("#leaning h4").css({
+    "color": color
+  });
+
+  var analysis_html = "<small>degree of analysis</small><br><strong>unknown</strong>";
+
+
+
+  $("#analysis h5").html(analysis_html)
+
+  var topics_html = "";
+
+  if (sentiment < 0) {
+    topics_html += "<h6 class=\"text-danger\">&#9660; " + sentiment + "</h6>"
+  } else {
+    topics_html += "<h6 class=\"text-success\">&#9650; " + sentiment + "</h6>"
+  }
+
+
+  $("#entities").html(topics_html);
+
+  $(".hidden-initially").css({
+    "display": "inherit"
+  });
+}
+
+// load([{{sentiment_data|safe}}]);
+load([{{sentiment}}]);
+</script>
+</body>
+</html>

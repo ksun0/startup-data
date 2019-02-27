@@ -1,0 +1,77 @@
+<!doctype html>
+<html>
+<head>
+  <title>Speculon</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css?family=Ubuntu:300,400,500,700" rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.5/js/bootstrap.min.js" integrity="sha384-BLiI7JTZm+JWlgKa0M0kGRpJbF2J8q+qreVrKBC47e3K6BW78kGLrCkeRX6I9RoK" crossorigin="anonymous"></script>
+  <style>
+
+  .btn {
+    background: #7F007F;
+    border: #4c004c;
+  }
+
+  .btn:hover {
+    background: #660066;
+  }
+
+  .btn:active, .btn:focus, .btn:active:focus {
+    background: #7F007F;
+  }
+  </style>
+  <script>
+function searchButtonShow(){
+$("#search").slideDown();
+}
+
+</script>
+</head>
+<body style="font-family: Helvetica, sans-serif;">
+  <div style="height: 100vh;
+  text-align: center;
+  background: linear-gradient(rgba(0,0, 0,0.5), rgba(0,0, 0,0.5)), url('https://www.seedinvest.com/wp-content/uploads/2014/12/1600x1200-new-york-city-skyline-wallpaper-black-and-white.jpg');
+  background-size: cover;
+  background-position: center;
+  display: flex; flex-direction: column; justify-content: center;  color: white; font-size: 150%  ">
+  <div class="container">
+    <h1 style=" font-size: 350%; letter-spacing: 0.08em;"><b>SPECULON</b></h1>
+    <p style="">Newstrality uses cutting-edge artificial intelligence to detect the politicial leanings of news articles and make readers aware of bias.</p>
+    <!-- <img src="{{ url_for('static',filename='code.png') }}" style="margin-bottom: 30px; width: 50%"> -->
+
+    <form method="post" action="" style="width: 60%; margin: 0 auto;">
+      {{ form.csrf }} <!-- csrf -->
+      <div class="row">
+        <div class="col-xs-12 col-sm-12" style="margin-bottom: 0.3em">
+          {{ form.url(class="form-control form-control-lg", onclick="searchButtonShow()", placeholder="Enter article URL...", style="margin-bottom: 0.3em") }}
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-4">
+          {{ form.operatingExpense(class="form-control form-control-lg", onclick="searchButtonShow()", placeholder="Enter operating expense...", style="margin-bottom: 0.3em") }}
+
+          </div>
+          <div class="col-xs-12 col-sm-12 col-md-4">
+
+            {{ form.grossProfit(class="form-control form-control-lg", onclick="searchButtonShow()", placeholder="Enter gross profit...", style="margin-bottom: 0.3em") }}
+
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-4">
+
+              {{ form.profitMargin(class="form-control form-control-lg", onclick="searchButtonShow()", placeholder="Enter profit margin...") }}
+              </div>
+
+        <div class="col-xs-12 col-sm-12" id="search" style="display: none; margin-top: 0.7em">
+          <button type="submit" class="btn btn-lg btn-block btn-secondary">Submit</button>
+        </div>
+      </div>
+    </form>
+  </div>
+
+
+</div>
+<!-- <div class="container" style="margin-bottom: 60px; margin-top: 60px">
+  <h1>How Newstrality Works</h1>
+  <p>Newstrality uses cutting-edge artificial intelligence to detect the politicial leanings of news articles and make readers aware of bias.</p>
+</div> -->
+</body>
+</html>
