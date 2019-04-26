@@ -1,7 +1,7 @@
-csv_export/new_organizations.csv
 ai-organizations/
 ai-organizations/*
-csv_export/
-csv_export/*
+csv_export/crunchbase/
+csv_export/training/
 .ipynb_checkpoints/
 .ipynb_checkpoints/*
+.DS_Store
