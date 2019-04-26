@@ -5,3 +5,8 @@ csv_export/training/
 .ipynb_checkpoints/
 .ipynb_checkpoints/*
 .DS_Store
+csv_export/organizations.csv
+twitter-sentiment-model/model.h5
+twitter-sentiment-model/model.w2v
+csv_export/training.1600000.processed.noemoticon.csv
+csv_export/ai_df copy.csv
